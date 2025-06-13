@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv
 
 app = Flask(__name__)
 app.secret_key = 'segredo_super_secreto'
 
-API_KEY = "tgp_v1_BllQx-qQ9kq0GfJwP_wp5lilRCHapnLhW9EIViraQrU"
+API_KEY = os.getenv("API_KEY")
 
 # Carrega conteúdo relevante com base na pergunta
 def carregar_contexto_relevante(pergunta):
